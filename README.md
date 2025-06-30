@@ -1,12 +1,5 @@
 # 🌱 ETL-Assessment-Green-Finance
 
-📊 **Analisis Data Green Finance**  
-🧑‍💻 *ETL Assessment Task 2025*
-
----
-
-## 👤 Identitas Peserta
-
 | Nama            | No Absen       | Kelompok |
 |------------------|----------------|----------|
 | Asfa Asfialana   | 10.037.DB2025  | III      |
