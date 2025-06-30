@@ -1,7 +1,7 @@
 # 🌱 ETL-Assessment-Green-Finance
 
 📊 **Analisis Data Green Finance**  
-🧑‍💻 *Tugas Premium Class 2025*
+🧑‍💻 *ETL Assessment Task 2025*
 
 ---
 
@@ -49,7 +49,7 @@ Berdasarkan databoks dari *International Energy Agency (IEA)*:
 > Emisi tersebut meningkat **0,8%** dibanding **2023** (*year-on-year/yoy*),  
 > sekaligus menjadi **rekor tertinggi baru** seperti terlihat pada grafik.
 
-![Grafik Emisi CO2 Global - Sumber: IEA via Databoks](https://example.com/grafik-emisi-co2.png) <!-- Ganti link jika ada -->
+![gambar1](https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Data/gambar1.png)
 
 ---
 
