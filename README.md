@@ -78,3 +78,56 @@ Green finance atau biasanya disebut dengan sustainability finance menurut Urban 
 Implementasi green finance saat ini masih belum memiliki pedoman yang jelas baik secara nasional maupun internasional. Tidak adanya pedoman baku yang harus diikuti oleh pelaku usaha dalam menjalankan green finance membuat mereka menjalankan prinsip tersebut dalam garis besar saja atau penerapan green/sustainability finance hanya didasarkan pada pengurangan dampak pencemaran dan perusakan lingkungan saja padahal penerapan yang dapat dilakukan bisa lebih luas lagi, seperti membantu masyarakat untuk sadar dalam menjaga lingkungan atau melakukan kemitraan yang berbasis pada kelestarian lingkungan. Tidak adanya panduan atau standar yang jelas mengenai kebenaran perusahaan dalam mengimplementasikan green finance memberikan hal yang tidak baik karena dapat memicu praktik manipulatif, perusahaan yang melakukan kampanye green finance bisa saja dilakukan hanya untuk formalitas publik atau mengikuti peraturan saja tanpa benar-benar melakukan. Sebaliknya, tidak ada panduan dalam penerapan green finance bisa saja memberikan tudingan negatif pada perusahaan atau pelaku usaha yang sebenarnya menerapkan praktik tersebut tanpa mempublikasikannya.
 
 Walaupun tidak ada pedoman yang jelas bukan berarti penerapan green finance tidak dapat dievaluasi untuk diketahui kebenarannya, salah satu cara untuk menganalisis adalah menggunakan python. Analisis Green Finance dapat dilakukan secara efektif menggunakan bahasa pemrograman Python, mengingat kemampuannya yang luas dalam mengelola, memproses, dan menganalisis data multidimensi yang melibatkan aspek keuangan, lingkungan, sosial, dan spasial. Dengan menggunakan Python, proses analisis Green Finance menjadi lebih efisien, reproducible, dan transparan, terutama dalam konteks evaluasi efisiensi investasi hijau, perhitungan emisi CO₂, pengukuran dampak sosial, serta klasifikasi daya tarik proyek berbasis data. Pendekatan ini juga memungkinkan pengembangan alat analisis yang dapat digunakan ulang (reusable tools) dan mampu menangani data yang tidak lengkap atau tidak konsisten melalui teknik data cleaning dan error handling.
+
+### 2.2 Financial Dataset
+
+Financial Dataset adalah kumpulan data yang berisi informasi keuangan tentang proyek-proyek energi (seperti PLTS dan PLTM). Dataset ini digunakan untuk:
+
+- Mengevaluasi kelayakan investasi proyek
+- Menilai risiko dan potensi keuntungan
+- Membandingkan efisiensi dana antar proyek
+
+### 2.3 Social Dataset
+
+Berisi data sosial di sekitar lokasi proyek, seperti:
+- `Land_Status`: Status kepemilikan lahan (Adat, Negara, Swasta)
+- `Community_Support`: Dukungan masyarakat (%)
+- `Population_Density`: Kepadatan penduduk
+- `Tingkat_Konflik`: Potensi konflik sosial (Low, Medium, High ⚠️)
+
+**Tujuan:** Mengukur risiko sosial dan potensi penerimaan masyarakat terhadap proyek.
+ 
+### 2.4 Economic Dataset
+
+Menyajikan indikator ekonomi untuk menilai kelayakan investasi:
+- `GDP_Growth`: Pertumbuhan ekonomi lokal (%)
+- `Interest_Rate`: Suku bunga (%)
+- `Bond_Yield`: Imbal hasil obligasi hijau (%)
+- `Daya_Tarik_Investasi`: Peringkat daya tarik proyek (High/Medium/Low)
+
+**Tujuan:** Mengukur potensi dan resiko ekonomi dari proyek hijau.
+
+### 2.5 Enviromental Dataset
+
+Berisi informasi tentang dampak dan manfaat lingkungan, seperti:
+- `CO2_Reduction`: Jumlah pengurangan emisi karbon (kg)
+- `Energy_Output`: Energi yang dihasilkan (kWh)
+- `Environmental_Risk_Index`: Indeks risiko lingkungan
+- `Peringkat_Dampak`: Skor dampak proyek (Low/Medium/High 🌿)
+
+**Tujuan:** Menilai efisiensi dan kontribusi proyek terhadap keberlanjutan lingkungan.
+
+### 2.6 Geospatial Dataset
+
+Menyediakan informasi spasial dan lokasi proyek:
+- `Latitude` / `Longitude`: Koordinat geografis proyek
+- `Efisiensi_Lokasi`: Efisiensi lokasi (High/Medium/Low)
+- `Jarak_Ke_Jaringan`: Jarak ke jaringan listrik terdekat (km)
+
+**Tujuan:** Menilai kelayakan lokasi proyek dari sisi teknis dan distribusi energi.
+
+---
+
+## 3. 📊 Hasil dan Pembahasan
+
+
