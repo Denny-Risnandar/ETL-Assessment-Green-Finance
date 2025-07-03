@@ -1,8 +1,11 @@
 # 🌱 ETL-Assessment-Green-Finance
 
-| Nama            | No Absen       | Kelompok |
-|------------------|----------------|----------|
-| Asfa Asfialana   | 10.037.DB2025  | III      |
+| Nama               | No Absen       | Kelompok |
+|--------------------|----------------|----------|
+|Alif Nur Rahman     | 10.028.DB2025  | III      |
+|Asfa Asfialana      | 10.037.DB2025  | III      |
+|Denny Risnandar     | 09.000.DB2025  | III      |
+|Ihsan Ahsanul Amala | 09.000.DB2025  | III      |
 
 ---
 
