@@ -187,6 +187,7 @@ $$
 \text{Efisiensi}_{CO_2} = \frac{\text{CO₂ Reduction (ton)}}{\text{Investment Cost (Rp)}} = \frac{\text{CO₂ Reduction}}{\text{Investment\_Cost} \times 1{,}000{,}000}
 $$
 
+
 Di mana:
 - **CO₂ Reduction** = total emisi CO₂ yang berhasil dikurangi (dalam ton)
 - **Investment Cost** = jumlah biaya investasi proyek (dalam miliar rupiah)
