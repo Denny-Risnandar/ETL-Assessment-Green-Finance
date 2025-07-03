@@ -237,9 +237,7 @@ Jika Project_ID valid (ada dalam dataset), maka program menampilkan:
 - Land_Status
 - Tingkat_Konflik
 
-Jika tidak ditemukan, akan muncul pesan: "Project not found". Pengguna bisa keluar dari program dengan mengetikkan Done.
-
-Contoh output saat dijalankan:
+Jika tidak ditemukan, akan muncul pesan: "Project not found". Pengguna bisa keluar dari program dengan mengetikkan Done. Contoh output saat dijalankan:
 
 Enter Project_ID (or 'Done' to finish): PLTS-NTT-001
 
@@ -255,11 +253,61 @@ Enter Project_ID (or 'Done' to finish): INVALID-ID
 
 Enter Project_ID (or 'Done' to finish): Done
 
-
 Program ini dibuat menggunakan while loop dan string matching untuk memberikan antarmuka pencarian sederhana namun berguna dalam konteks Green Finance, khususnya dari sisi sosial (Social Governance). Beberapa poin penting:
 
 - Pemeriksaan status lahan membantu menilai aspek legalitas dan risiko kepemilikan.
 - Informasi tingkat konflik penting untuk analisis kelayakan proyek, terutama dalam daerah yang memiliki sensitivitas sosial tinggi.
 - Proses input yang berulang membuat alat ini fleksibel untuk digunakan oleh petugas lapangan, analis proyek, maupun pengambil kebijakan.
 
-### 4.4 
+### 4.4 Identifikasi Proyek Potensial Rendah Risiko
+
+Setelah dilakukan penggabungan data antara Economic_Dataset.xlsx dan Social_Dataset.xlsx berdasarkan kolom Project_ID, diperoleh proyek-proyek yang memiliki:
+
+- Daya Tarik Investasi: High
+- Tingkat Konflik Sosial: Low
+
+Berikut adalah hasilnya Projects with High Investment Attractiveness and Low Conflict:
+- PLTM-SUMUT-001
+- PLTS-JATIM-001
+- PLTS-NTB-001
+- PLTS-JABW-001
+
+Analisis ini bertujuan untuk mendukung pemerintah dalam meminimalkan risiko investasi pada proyek energi terbarukan. Dengan menggabungkan aspek ekonomi dan sosial, kita bisa menyaring proyek yang tidak hanya menguntungkan secara finansial, tetapi juga aman secara sosial. Kriteria yang digunakan:
+
+- Daya_Tarik_Investasi == "High" → proyek memiliki potensi keuntungan tinggi dan menarik bagi investor.
+- Tingkat_Konflik == "Low" → proyek diperkirakan memiliki sedikit atau tidak ada hambatan sosial di lapangan.
+
+Metode yang digunakan:
+
+- Gabungkan kedua dataset berdasarkan Project_ID.
+- Simpan hasilnya dalam bentuk dictionary, dengan Project_ID sebagai key, dan nilai tuple (Daya_Tarik_Investasi, Tingkat_Konflik) sebagai value.
+- Gunakan for loop dan if untuk menyaring proyek berdasarkan kriteria di atas.
+
+Empat proyek yang teridentifikasi berpotensi menjadi kandidat unggulan untuk pengembangan energi berkelanjutan karena memenuhi dua kriteria penting sekaligus: menarik bagi investor dan minim konflik sosial.
+
+### 4.5 Total Investasi untuk Lokasi dengan Efisiensi Tinggi
+
+Setelah dilakukan penggabungan data antara Geospatial_Dataset.xlsx dan Financial_Dataset.xlsx, didapat total investasi untuk proyek-proyek yang memiliki efisiensi lokasi tinggi:
+
+- Total Investment for High-Efficiency Locations: 955.73 billion Rp
+
+Efisiensi lokasi (Efisiensi_Lokasi) merupakan faktor penting dalam analisis proyek energi, karena berkaitan langsung dengan:
+
+- Biaya logistik,
+- Aksesibilitas infrastruktur,
+- Kemudahan implementasi proyek di lapangan.
+
+Proyek dengan lokasi efisien cenderung memiliki waktu pelaksanaan lebih cepat, risiko operasional lebih rendah, dan biaya pembangunan yang lebih stabil.
+
+Untuk menghitung total investasi tersebut, dilakukan langkah-langkah sebagai berikut:
+
+- Gabungkan data geospasial dan keuangan berdasarkan Project_ID.
+- Buat fungsi calculate_total_investment(data) untuk memproses total biaya investasi.
+- Gunakan for loop dan kondisi if untuk menjumlahkan Investment_Cost hanya dari proyek dengan Efisiensi_Lokasi == "High".
+
+Diperoleh total investasi sebesar 955.73 miliar rupiah untuk proyek-proyek yang memiliki lokasi dengan efisiensi tinggi. Ini menunjukkan bahwa:
+
+- Proyek-proyek ini layak menjadi prioritas pendanaan, karena secara lokasi sudah optimal.
+- Informasi ini penting untuk penyusunan strategi investasi energi yang efisien dan rendah risiko.
+- Pemerintah dan investor dapat memanfaatkan metrik ini untuk menghindari proyek di lokasi tidak strategis yang berpotensi memakan biaya lebih besar.
+
