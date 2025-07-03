@@ -165,13 +165,20 @@ Proyek ini dibangun menggunakan bahasa Python 3.12 dan dijalankan di lingkungan 
 
 green-finance-analysis/
 ├── notebooks/
+
 │ └── analisis.ipynb # Notebook utama berisi eksplorasi dan analisis data
+
 ├── data/
 │ ├── financial_dataset.xlsx # Data investasi dan keuangan proyek
+
 │ ├── environmental_dataset.xlsx # Data pengurangan emisi CO₂ dan dampak lingkungan
+
 │ ├── social_dataset.xlsx # Data sosial (konflik, status tanah, pekerja)
+
 │ ├── economic_dataset.xlsx # Data dampak ekonomi makro proyek
+
 │ └── geospatial_dataset.csv # Koordinat dan lokasi proyek
+
 ├── README.md # Dokumentasi proyek ini
 
 ----
