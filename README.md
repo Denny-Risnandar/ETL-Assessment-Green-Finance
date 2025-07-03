@@ -128,6 +128,87 @@ Menyediakan informasi spasial dan lokasi proyek:
 
 ---
 
-## 3. 📊 Hasil dan Pembahasan
+## 3. 📊 Metodologi
 
+### 3.1 Metode Analisis
+
+Penelitian ini menggunakan pendekatan kuantitatif berbasis data untuk mengevaluasi kelayakan dan dampak proyek-proyek energi hijau melalui kerangka kerja Green Finance. Terdapat lima dimensi utama yang dianalisis: finansial, lingkungan, sosial, ekonomi, dan geospasial.
+
+Tahapan Penelitian:
+**1. Pengumpulan Data**
+  Lima dataset dikompilasi, masing-masing mewakili dimensi Green Finance:
+
+- Financial Dataset
+- Environmental Dataset
+- Social Dataset
+- Economic Dataset
+- Geospatial Dataset
+
+**2.Pra-Pemrosesan Data**
+
+- Mengimpor data dari file .xlsx
+- Pembersihan data: menangani nilai hilang, duplikat, dan format tidak konsisten
+- Normalisasi dan transformasi kolom jika diperlukan
+
+### 3.2 Implementasi 
+
+Proyek ini dibangun menggunakan bahasa Python 3.12 dan dijalankan di lingkungan Jupyter Notebook dalam manajemen lingkungan Conda. Struktur direktori dan teknologi yang digunakan sebagai berikut:
+
+- Python 3.12
+- Conda (Environment Management)\
+- Jupyter Notebook
+- Pandas, NumPy (manipulasi data)
+- Matplotlib(visualisasi)
+- OpenPyXL / xlrd (baca file Excel)
+
+### 3.3 Struktur Proyek
+
+📦 green-finance-analysis/
+├── notebooks/
+│   ├── analisis.ipynb
+├── data/
+│   ├── financial_dataset.xlsx
+│   ├── environmental_dataset.xlsx
+│   ├── social_dataset.xlsx
+│   ├── economic_dataset.xlsx
+│   └── geospatial_dataset.csv
+├── README.md
+
+----
+
+## 4. Hasil dan Pembahasan
+
+### 4.1 Evaluasi Efisiensi Reduksi Emisi CO₂ pada Proyek PLTS
+
+Analisis ini bertujuan untuk mengukur **efisiensi reduksi emisi karbon dioksida (CO₂)** terhadap biaya investasi pada proyek-proyek PLTS (Pembangkit Listrik Tenaga Surya). Efisiensi dihitung dengan rumus:
+
+\[
+\text{Efisiensi}_{CO₂} = \frac{\text{CO₂ Reduction (ton)}}{\text{Investment Cost (Rp)}}
+= \frac{\text{CO₂ Reduction}}{\text{Investment\_Cost} \times 1{,}000{,}000}
+\]
+
+Di mana:
+- **CO₂ Reduction** = total emisi CO₂ yang berhasil dikurangi (dalam ton)
+- **Investment Cost** = jumlah biaya investasi proyek (dalam miliar rupiah)
+
+Selanjutnya, setiap proyek diklasifikasikan menjadi:
+- `"High"` jika efisiensi ≥ 0.5 ton CO₂ per juta rupiah
+- `"Low"` jika efisiensi < 0.5 ton CO₂ per juta rupiah
+
+Berikut hasil klasifikasi proyek PLTS:
+
+- PLTS-NTT-001: 0.0005 (Low)
+- PLTS-JATIM-001: 0.0004494830944413924 (Low)
+- PLTS-SULS-001: 0.00047808764940239046 (Low)
+- PLTS-NTB-001: 0.00044444444444444447 (Low)
+- PLTS-JABW-001: 0.0004318181818181818 (Low)
+
+
+Semua proyek memiliki nilai efisiensi di bawah 0.5 ton CO₂ per juta rupiah.
+Hasil evaluasi menunjukkan bahwa **tidak ada proyek PLTS yang mencapai kategori efisiensi "High"** berdasarkan ambang batas yang ditentukan pemerintah. Rata-rata efisiensi hanya berada pada kisaran **0.0004–0.0005**, jauh di bawah target 0.5.
+
+Beberapa kemungkinan penyebab efisiensi rendah:
+- **Biaya investasi sangat besar**, terutama di daerah terpencil atau pulau-pulau kecil
+- **Skala proyek masih kecil**, sehingga dampak pengurangan emisinya tidak sebanding dengan investasi
+- Teknologi panel surya yang digunakan mungkin belum maksimal dalam efisiensi
 
