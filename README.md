@@ -163,16 +163,16 @@ Proyek ini dibangun menggunakan bahasa Python 3.12 dan dijalankan di lingkungan 
 
 ### 3.3 Struktur Proyek
 
-📦 green-finance-analysis/
+green-finance-analysis/
 ├── notebooks/
-│   ├── analisis.ipynb
+│ └── analisis.ipynb # Notebook utama berisi eksplorasi dan analisis data
 ├── data/
-│   ├── financial_dataset.xlsx
-│   ├── environmental_dataset.xlsx
-│   ├── social_dataset.xlsx
-│   ├── economic_dataset.xlsx
-│   └── geospatial_dataset.csv
-├── README.md
+│ ├── financial_dataset.xlsx # Data investasi dan keuangan proyek
+│ ├── environmental_dataset.xlsx # Data pengurangan emisi CO₂ dan dampak lingkungan
+│ ├── social_dataset.xlsx # Data sosial (konflik, status tanah, pekerja)
+│ ├── economic_dataset.xlsx # Data dampak ekonomi makro proyek
+│ └── geospatial_dataset.csv # Koordinat dan lokasi proyek
+├── README.md # Dokumentasi proyek ini
 
 ----
 
@@ -181,6 +181,7 @@ Proyek ini dibangun menggunakan bahasa Python 3.12 dan dijalankan di lingkungan 
 ### 4.1 Evaluasi Efisiensi Reduksi Emisi CO₂ pada Proyek PLTS
 
 Analisis ini bertujuan untuk mengukur **efisiensi reduksi emisi karbon dioksida (CO₂)** terhadap biaya investasi pada proyek-proyek PLTS (Pembangkit Listrik Tenaga Surya). Efisiensi dihitung dengan rumus:
+
 $$
 \text{Efisiensi}_{CO_2} = \frac{\text{CO₂ Reduction (ton)}}{\text{Investment Cost (Rp)}} = \frac{\text{CO₂ Reduction}}{\text{Investment\_Cost} \times 1{,}000{,}000}
 $$
