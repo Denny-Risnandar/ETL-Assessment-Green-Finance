@@ -212,3 +212,54 @@ Beberapa kemungkinan penyebab efisiensi rendah:
 - **Skala proyek masih kecil**, sehingga dampak pengurangan emisinya tidak sebanding dengan investasi
 - Teknologi panel surya yang digunakan mungkin belum maksimal dalam efisiensi
 
+### 4.2 Rata-rata Pengurangan Emisi CO₂ Proyek PLTM
+
+Berdasarkan hasil analisis menggunakan dataset Environmental_Dataset.xlsx, diperoleh bahwa:
+
+- Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO₂e.
+
+Nilai ini dihitung dengan menyaring seluruh proyek yang memiliki Project_ID diawali dengan "PLTM", kemudian menjumlahkan seluruh nilai CO2_Reduction dan membaginya dengan jumlah proyek tersebut. PLTM (Pembangkit Listrik Tenaga Minihidro) merupakan salah satu bentuk energi terbarukan yang ramah lingkungan. Dengan kontribusi rata-rata sebesar 34.600 ton CO₂e per proyek, PLTM terbukti memberikan dampak positif dalam mengurangi emisi karbon di sektor energi.
+
+Nilai ini menunjukkan bahwa:
+
+- PLTM berpotensi menjadi pilar penting dalam strategi dekarbonisasi nasional.
+
+Secara kolektif, proyek-proyek PLTM dapat mendukung target pengurangan emisi yang ditetapkan oleh pemerintah. Analisis berbasis data ini penting sebagai bahan evaluasi dan dasar perencanaan pengembangan proyek energi skala kecil ke depan.
+
+### 4.3 Pemeriksaan Status Lahan dan Tingkat Konflik Sosial Proyek
+
+Program berhasil dibuat untuk memenuhi kebutuhan pemerintah dalam memeriksa status lahan dan tingkat konflik sosial berdasarkan input Project_ID. Program bekerja dengan cara:
+
+- Meminta pengguna untuk memasukkan Project_ID secara berulang (loop).
+
+Jika Project_ID valid (ada dalam dataset), maka program menampilkan:
+
+- Land_Status
+- Tingkat_Konflik
+
+Jika tidak ditemukan, akan muncul pesan: "Project not found". Pengguna bisa keluar dari program dengan mengetikkan Done.
+
+Contoh output saat dijalankan:
+
+Enter Project_ID (or 'Done' to finish): PLTS-NTT-001
+
+- Project Name: PLTS-NTT-001 - Land Status: Adat, Tingkat Konflik: High
+
+Enter Project_ID (or 'Done' to finish): PLTM-JABAR-002
+
+- Project Name: PLTM-JABAR-002 - Land Status: Pemerintah, Tingkat Konflik: Low
+
+Enter Project_ID (or 'Done' to finish): INVALID-ID
+
+- Project Not Found
+
+Enter Project_ID (or 'Done' to finish): Done
+
+
+Program ini dibuat menggunakan while loop dan string matching untuk memberikan antarmuka pencarian sederhana namun berguna dalam konteks Green Finance, khususnya dari sisi sosial (Social Governance). Beberapa poin penting:
+
+- Pemeriksaan status lahan membantu menilai aspek legalitas dan risiko kepemilikan.
+- Informasi tingkat konflik penting untuk analisis kelayakan proyek, terutama dalam daerah yang memiliki sensitivitas sosial tinggi.
+- Proses input yang berulang membuat alat ini fleksibel untuk digunakan oleh petugas lapangan, analis proyek, maupun pengambil kebijakan.
+
+### 4.4 
