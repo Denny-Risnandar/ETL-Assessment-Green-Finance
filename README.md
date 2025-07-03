@@ -184,7 +184,7 @@ Proyek ini dibangun menggunakan bahasa Python 3.12 dan dijalankan di lingkungan 
 Analisis ini bertujuan untuk mengukur **efisiensi reduksi emisi karbon dioksida (CO₂)** terhadap biaya investasi pada proyek-proyek PLTS (Pembangkit Listrik Tenaga Surya). Efisiensi dihitung dengan rumus:
 
 $$
-\text{Efisiensi}_{CO_2} = \frac{\text{CO₂ Reduction (ton)}}{\text{Investment Cost (Rp)}} = \frac{\texttt{CO2_Reduction}}{\texttt{Investment_Cost} \times 1{,}000{,}000}
+\mathrm{Efisiensi}_{CO_2} = \frac{\mathrm{CO2\ Reduction\ (ton)}}{\mathrm{Investment\ Cost\ (Rp)}} = \frac{\mathrm{CO2\ Reduction}}{\mathrm{InvestmentCost} \times 1{,}000{,}000}
 $$
 
 Di mana:
