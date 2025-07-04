@@ -649,7 +649,7 @@ Analisis ini bertujuan untuk memprediksi **Daya Tarik Investasi** (tinggi, sedan
   - Mencoba model yang lebih kompleks seperti **Random Forest** atau **XGBoost**
   - Melakukan feature selection dan eksplorasi fitur baru
 
-📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**[Task_for_Green_Finance_Data_Analysis]**(https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Analysis/Task_for_Green_Finance_Data_Analysis.ipynb)
+📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**[Task_for_Green_Finance_Data_Analysis](https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Analysis/Task_for_Green_Finance_Data_Analysis.ipynb)
 
 -------
 
