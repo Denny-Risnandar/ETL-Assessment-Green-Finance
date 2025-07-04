@@ -586,24 +586,75 @@ Hasil ini menunjukkan bahwa analisis tetap dapat dilakukan meskipun ada proyek y
 
 ### 4.8 🤖 Bonus Question: Machine Learning with Decision Tree Classifier
 
-Kami menggunakan algoritma **Decision Tree Classifier** untuk memprediksi daya tarik investasi proyek berdasarkan data ekonomi, lingkungan, dan finansial.
+Analisis ini bertujuan untuk memprediksi **Daya Tarik Investasi** (tinggi, sedang, rendah) berdasarkan data ekonomi, lingkungan, dan finansial menggunakan algoritma **Decision Tree Classifier**.
 
-- Dataset tidak memiliki missing values.
-- Data kategorikal diencoding, data numerik dinormalisasi.
-- Model dilatih menggunakan **GridSearchCV** dengan akurasi akhir sebesar **36.5%**.
-- Model cukup baik mengenali kelas **"Medium"**, namun kurang akurat untuk kelas lainnya.
-- Fitur paling berpengaruh dalam prediksi:
-  - `Konteks_Ekonomi`
-  - `Revenue_Stream`
-  - `CO2_Reduction`
+**🧪 Adapun Tahapan Analisis yang kami lakukan adalah :**
 
-📄 **[Klik di sini untuk melihat pembahasan lengkap](./README_Bonus_ML_DecisionTree_Corrected.md)** yang mencakup evaluasi model, classification report, dan feature importance.
+1. **Import dan Pembersihan Data**
+   - Data diambil dari `question_bonus_dataset.csv`
+   - Tidak ditemukan *missing values* pada dataset
+   - Kolom kategorikal seperti `Konteks_Ekonomi` dan `Daya_Tarik_Investasi` diencoding dengan `LabelEncoder`
+   - Fitur numerik dinormalisasi menggunakan `StandardScaler`
+
+2. **Pemodelan dengan Decision Tree**
+   - Target prediksi: `Daya_Tarik_Investasi`
+   - Model: `DecisionTreeClassifier`
+   - Parameter disetel dengan **GridSearchCV** sebanyak 450 kombinasi (5-fold cross-validation)
+
+   **Hasil Hyperparameter Terbaik**:
+   ```json
+   {
+     "criterion": "entropy",
+     "max_depth": 5,
+     "min_samples_split": 10,
+     "min_samples_leaf": 1
+   }
+   ```
+
+3. **Evaluasi Model**
+   - **Akurasi Model**: `36.5%`
+   - Model cenderung hanya mengenali kelas **Medium (💵💵💵)** secara baik
+   - Kelas lain seperti “High” dan “Low” tidak dapat dikenali dengan akurat
+
+   **Classification Report (Singkat)**:
+   - Kelas Medium: precision 0.39, recall 0.94
+   - Kelas lainnya: precision dan recall mendekati 0
+
+   **Confusion Matrix**:
+   ```
+   [[ 1  0  0 63]   ← High: 💵💵💵💵
+    [ 4  0  0 31]   ← High: 💵💵💵💵💵
+    [ 2  1  0 21]   ← Low: 💵💵
+    [ 5  0  0 72]]  ← Medium: 💵💵💵
+   ```
+
+4. **Feature Importance**
+   Fitur paling berpengaruh terhadap prediksi daya tarik investasi:
+   | Fitur               | Importance |
+   |---------------------|------------|
+   | `Konteks_Ekonomi`   | 33.2%      |
+   | `Revenue_Stream`    | 22.3%      |
+   | `CO2_Reduction`     | 10.9%      |
+   | `Investment_Cost`   | 10.1%      |
+   | `Debt_Ratio`        | 9.9%       |
+
+
+**Dari hasil diatas maka dapat disimpulkan bahwa :**
+
+- Model Decision Tree mampu mempelajari pola, tetapi masih **kurang akurat secara keseluruhan**.
+- Performa terbaik hanya terlihat pada kelas "Medium"
+- Disarankan:
+  - Menangani ketidakseimbangan data antar kelas
+  - Mencoba model yang lebih kompleks seperti **Random Forest** atau **XGBoost**
+  - Melakukan feature selection dan eksplorasi fitur baru
+
+📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**
 
 
 
-## Kesimpulan 
+## [📄 Kesimpulan 
 
-Dari hasil analisis maka dapat disimpulkan : 
+Dari hasil semua analisis green finance maka dapat disimpulkan : 
 
 1. **Pengukuran Efisiensi CO₂ dan Investasi**
 
