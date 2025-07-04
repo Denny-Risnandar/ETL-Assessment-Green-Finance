@@ -503,57 +503,103 @@ Dengan pendekatan ini, pemerintah dan tim analis dapat mengevaluasi efisiensi li
 
 ### 4.7 Menghitung Rata-rata Energy Output dengan Error Handling
 
-Soal ini menguji kemampuan dalam menangani **data yang tidak lengkap** saat melakukan analisis perulangan. Fokusnya adalah:
+selanjutnya analisis ini menguji kemampuan dalam menangani **data yang tidak lengkap** saat melakukan analisis perulangan. Fokus utamanya meliputi:
 
-- Menggunakan **`for loop`** untuk memproses banyak proyek
-- Menangani data hilang atau tidak tersedia (missing data)
-- Menggunakan **`try-except` atau kondisi `if`** untuk error handling
+- Penggunaan **`for loop`** untuk memproses banyak proyek
+- Penanganan data hilang (missing data) dengan **`try-except`**
 - Menghitung **rata-rata Energy Output** dari proyek-proyek yang valid
+- Menyaring proyek yang tidak ditemukan atau tidak memiliki nilai `Energy_Output`
 
-Pemerintah membutuhkan metrik untuk mengevaluasi efisiensi output energi dari proyek-proyek terpilih berdasarkan file `Environmental_Dataset.xlsx`.  
-Namun, tidak semua proyek memiliki data `Energy_Output`, sehingga program harus **menyaring** dan **mengabaikan proyek yang datanya kosong**.
+🗂️ Dataset yang Digunakan dalam analisis ini adalah 
 
-Tahapan yang dilakukan dalam analisis ini adalah :
+- `Environmental_Dataset.xlsx`
+
+Analisis ini bertujuan ketika pemerintah membutuhkan metrik untuk mengevaluasi efisiensi output energi dari **proyek-proyek terpilih** berdasarkan file `Environmental_Dataset.xlsx`.
+
+Namun, tidak semua proyek memiliki data lengkap, sehingga program harus dapat menangani kasus proyek yang:
+
+- Tidak ditemukan dalam dataset
+- Tidak memiliki nilai pada kolom `Energy_Output`
+
+Adapaun tahapan Analisis :
+
 1. **Ambil data** dari `Environmental_Dataset.xlsx`
-2. **Inisialisasi** dua variabel:
-   - `total_energy` → total output energi dari proyek valid
-   - `valid_count` → jumlah proyek dengan data valid
-3. Lakukan **looping** pada data:
-   - Jika `Energy_Output` *tidak kosong*, tambahkan ke total dan hitung
-   - Jika kosong (NaN), tampilkan pesan peringatan
-4. Hitung rata-rata hanya jika ada proyek valid
-5. Tampilkan hasil akhir atau pesan jika tidak ada proyek valid
+2. **Tentukan daftar proyek** yang ingin dianalisis:
+   ```python
+   project_ids = ['PLTS-JATIM-001', 'PLTS-NTB-001', 'PLTS-SULSEL-003']
+   ```
+3. Inisialisasi dua variabel:
+
+   - total_energy_output → total output energi dari proyek valid
+   - valid_projects → jumlah proyek dengan data valid
+
+4. Lakukan looping pada daftar project_ids:
+
+   - Ambil data Energy_Output berdasarkan Project_ID
+   - Jika ditemukan, jumlahkan nilainya dan catat sebagai proyek valid
+   - Jika tidak ditemukan, tampilkan pesan peringatan
+
+5. Hitung rata-rata hanya jika ada proyek valid
+
+6. Tampilkan hasil akhir atau pesan jika tidak ada proyek valid
 
 ```python
-total_energy = 0
-valid_count = 0
+project_ids = ['PLTS-JATIM-001', 'PLTS-NTB-001', 'PLTS-SULSEL-003']
 
-for pid, row in env_df.iterrows():
+total_energy_output = 0
+valid_projects = 0
+
+for project_id in project_ids:
     try:
-        energy = row["Energy_Output"]
-        if pd.notnull(energy):  # Pastikan tidak kosong
-            total_energy += energy
-            valid_count += 1
-        else:
-            print(f"{pid}: Energy_Output kosong.")
-    except KeyError:
-        print(f"{pid}: Kolom Energy_Output tidak ditemukan.")
+        energy_output = df_environmental.loc[df_environmental['Project_ID'] == project_id, 'Energy_Output'].values[0]
+        total_energy_output += energy_output
+        valid_projects += 1
+    except IndexError:
+        print(f"Project_ID '{project_id}' not found in the dataset.")
+    except KeyError as e:
+        print(f"Missing column in the dataset: {e}")
 
-# Tampilkan rata-rata jika ada data valid
-if valid_count > 0:
-    avg_output = total_energy / valid_count
-    print(f"Rata-rata Energy Output: {avg_output:.2f} kWh dari {valid_count} proyek")
+if valid_projects > 0:
+    average_output = total_energy_output / valid_projects
+    print(f"\nTotal Valid Projects: {valid_projects}")
+    print(f"Average Energy Output: {average_output}")
 else:
-    print("Tidak ada proyek valid yang bisa dihitung.")
-```
-Contoh ouput yang didapatkan :
-
-```
-Rata-rata Energy Output: 19600.00 kWh dari 10 proyek
+    print("No valid projects found.")
 ```
 
-Dengan menerapkan error handling dalam perulangan, kamu berhasil menghitung rata-rata Energy_Output secara aman dan efisien.
-Pendekatan ini penting dalam konteks Green Finance untuk memastikan bahwa keputusan investasi dan kebijakan berbasis data dilakukan hanya pada proyek-proyek yang memiliki data yang sahih dan terpercaya.
+maka ouput yang akan didapatkan adalah :
+
+```
+Project_ID 'PLTS-SULSEL-003' not found in the dataset.
+Total Valid Projects: 2
+Average Energy Output: 29000.0
+```
+
+Berdasarkan analisis terhadap 3 proyek yang dipilih, ditemukan bahwa:
+
+- Salah satu proyek (PLTS-SULSEL-003) tidak ditemukan dalam dataset
+- Dua proyek berhasil diolah dengan total output energi sebesar 58.000 kWh
+- Rata-rata output energi dari proyek-proyek valid adalah 29.000 kWh
+
+Hasil ini menunjukkan bahwa analisis tetap dapat dilakukan meskipun ada proyek yang datanya tidak tersedia, dengan memanfaatkan mekanisme pengecualian (try-except) untuk menjaga kelancaran program.
+
+
+### 4.8 🤖 Bonus Question: Machine Learning with Decision Tree Classifier
+
+Kami menggunakan algoritma **Decision Tree Classifier** untuk memprediksi daya tarik investasi proyek berdasarkan data ekonomi, lingkungan, dan finansial.
+
+- Dataset tidak memiliki missing values.
+- Data kategorikal diencoding, data numerik dinormalisasi.
+- Model dilatih menggunakan **GridSearchCV** dengan akurasi akhir sebesar **36.5%**.
+- Model cukup baik mengenali kelas **"Medium"**, namun kurang akurat untuk kelas lainnya.
+- Fitur paling berpengaruh dalam prediksi:
+  - `Konteks_Ekonomi`
+  - `Revenue_Stream`
+  - `CO2_Reduction`
+
+📄 **[Klik di sini untuk melihat pembahasan lengkap](./README_Bonus_ML_DecisionTree_Corrected.md)** yang mencakup evaluasi model, classification report, dan feature importance.
+
+
 
 ## Kesimpulan 
 
