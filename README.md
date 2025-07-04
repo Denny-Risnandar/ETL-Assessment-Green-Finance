@@ -261,86 +261,184 @@ Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO
 
 ### 4.3 Pemeriksaan Status Lahan dan Tingkat Konflik Sosial Proyek
 
-Program berhasil dibuat untuk memenuhi kebutuhan pemerintah dalam memeriksa status lahan dan tingkat konflik sosial berdasarkan input Project_ID. Program bekerja dengan cara:
+Program ini dirancang untuk membantu pemerintah dan pemangku kepentingan memeriksa **status lahan** dan **tingkat konflik sosial** berdasarkan input *Project_ID*, dengan pendekatan interaktif berbasis `while loop` dan `user input`.Fitur ini berfokus pada aspek **Social Governance** dalam kerangka Green Finance, khususnya terkait:
 
-- Meminta pengguna untuk memasukkan Project_ID secara berulang (loop).
+- Legalitas dan kepemilikan lahan proyek
+- Risiko sosial dan potensi konflik di lapangan
 
-Jika Project_ID valid (ada dalam dataset), maka program menampilkan:
+Analisis ini bertujuan melatih penggunaan **`while loop` dan pengolahan input pengguna** dalam Python. Berikut langkah-langkah utama:
 
-- Land_Status
-- Tingkat_Konflik
+1. **Membaca data sosial** dari `Social_Dataset.xlsx`
+2. **Menyimpan data ke dalam dictionary** (`soc_data`) agar pencarian cepat
+3. Menggunakan **`while loop`** untuk:
+   - Meminta input pengguna berulang kali
+   - Menampilkan status lahan dan tingkat konflik jika Project_ID ditemukan
+   - Menampilkan pesan “Project not found” jika tidak valid
+4. **Program berhenti** saat pengguna mengetik `"0"` atau `"Done"`
 
-Jika tidak ditemukan, akan muncul pesan: "Project not found". Pengguna bisa keluar dari program dengan mengetikkan Done. Contoh output saat dijalankan:
+```python
+# Tahap 1–2: Siapkan dictionary data sosial
+soc_data = {}
+for _, row in soc_df.iterrows():
+    pid = row['Project_ID']
+    land_status = row['Land_Status']
+    konflik = row['Tingkat_Konflik']
+    soc_data[pid] = (land_status, konflik)
 
-Enter Project_ID (or 'Done' to finish): PLTS-NTT-001
+# Tahap 3–4: Loop interaktif untuk pencarian data
+while True:
+    user_input = input("Enter Project_ID (or '0' to finish): ")
+    
+    if user_input.strip() == "0":
+        break
+    
+    if user_input in soc_data:
+        land_status, konflik = soc_data[user_input]
+        print(f"{user_input} - Land Status: {land_status}, Tingkat Konflik: {konflik}")
+    else:
+        print("Project not found")
+```
+Contoh ouput dari program yang sudah dibuat, misalnya :
 
-- Project Name: PLTS-NTT-001 - Land Status: Adat, Tingkat Konflik: High
+```
+Enter Project_ID (or '0' to finish): PLTS-NTT-001
+PLTS-NTT-001 - Land Status: Adat, Tingkat Konflik: High
 
-Enter Project_ID (or 'Done' to finish): PLTM-JABAR-002
+Enter Project_ID (or '0' to finish): PLTM-JABAR-002
+PLTM-JABAR-002 - Land Status: Pemerintah, Tingkat Konflik: Low
 
-- Project Name: PLTM-JABAR-002 - Land Status: Pemerintah, Tingkat Konflik: Low
+Enter Project_ID (or '0' to finish): INVALID-ID
+Project not found
 
-Enter Project_ID (or 'Done' to finish): INVALID-ID
+Enter Project_ID (or '0' to finish): 0
+```
 
-- Project Not Found
+Program berhasil memenuhi kebutuhan evaluasi sosial proyek energi secara interaktif.
+Dengan pendekatan Python yang sederhana namun efektif, fitur ini:
 
-Enter Project_ID (or 'Done' to finish): Done
-
-Program ini dibuat menggunakan while loop dan string matching untuk memberikan antarmuka pencarian sederhana namun berguna dalam konteks Green Finance, khususnya dari sisi sosial (Social Governance). Beberapa poin penting:
-
-- Pemeriksaan status lahan membantu menilai aspek legalitas dan risiko kepemilikan.
-- Informasi tingkat konflik penting untuk analisis kelayakan proyek, terutama dalam daerah yang memiliki sensitivitas sosial tinggi.
-- Proses input yang berulang membuat alat ini fleksibel untuk digunakan oleh petugas lapangan, analis proyek, maupun pengambil kebijakan.
+- 🔍 Menyediakan informasi penting secara real-time
+- 🛡️ Membantu mitigasi risiko konflik sosial sejak tahap perencanaan
+- 📊 Menunjukkan pentingnya data sosial dalam kerangka Green Finance yang berkelanjutan
 
 ### 4.4 Identifikasi Proyek Potensial Rendah Risiko
 
-Setelah dilakukan penggabungan data antara Economic_Dataset.xlsx dan Social_Dataset.xlsx berdasarkan kolom Project_ID, diperoleh proyek-proyek yang memiliki:
+Analisis ini bertujuan untuk membantu pemerintah dan pemangku kebijakan dalam **mengidentifikasi proyek energi terbarukan** yang:
 
-- Daya Tarik Investasi: High
-- Tingkat Konflik Sosial: Low
+- Menarik secara ekonomi (**High Investment Attractiveness**)
+- Aman secara sosial (**Low Social Conflict**)
 
-Berikut adalah hasilnya Projects with High Investment Attractiveness and Low Conflict:
-- PLTM-SUMUT-001
-- PLTS-JATIM-001
-- PLTS-NTB-001
-- PLTS-JABW-001
+Kombinasi dua faktor ini menciptakan peluang proyek yang **berkelanjutan**, **menguntungkan**, dan **berisiko rendah**, sehingga layak menjadi prioritas dalam strategi transisi energi hijau nasional.
 
-Analisis ini bertujuan untuk mendukung pemerintah dalam meminimalkan risiko investasi pada proyek energi terbarukan. Dengan menggabungkan aspek ekonomi dan sosial, kita bisa menyaring proyek yang tidak hanya menguntungkan secara finansial, tetapi juga aman secara sosial. Kriteria yang digunakan:
+Kali ini kita melakukan :
+- `merge()` antar dua dataset
+- Struktur **dictionary** di Python
+- Teknik **conditional filtering**
 
-- Daya_Tarik_Investasi == "High" → proyek memiliki potensi keuntungan tinggi dan menarik bagi investor.
-- Tingkat_Konflik == "Low" → proyek diperkirakan memiliki sedikit atau tidak ada hambatan sosial di lapangan.
+Berikut tahapan yang dilakukan:
 
-Metode yang digunakan:
+1. **Gabungkan** `Economic_Dataset.xlsx` dan `Social_Dataset.xlsx` berdasarkan `Project_ID`
+2. **Simpan hasil gabungan ke dictionary** dengan:
+   - `Project_ID` sebagai key
+   - `(Daya_Tarik_Investasi, Tingkat_Konflik)` sebagai tuple value
+3. **Gunakan for loop dan if** untuk menyaring proyek yang memenuhi kriteria:
+   - `Daya_Tarik_Investasi == "High"`
+   - `Tingkat_Konflik == "Low"`
 
-- Gabungkan kedua dataset berdasarkan Project_ID.
-- Simpan hasilnya dalam bentuk dictionary, dengan Project_ID sebagai key, dan nilai tuple (Daya_Tarik_Investasi, Tingkat_Konflik) sebagai value.
-- Gunakan for loop dan if untuk menyaring proyek berdasarkan kriteria di atas.
+```python
+# Gabungkan data ekonomi dan sosial
+merged_df = pd.merge(econ_df, social_df, on="Project_ID")
 
-Empat proyek yang teridentifikasi berpotensi menjadi kandidat unggulan untuk pengembangan energi berkelanjutan karena memenuhi dua kriteria penting sekaligus: menarik bagi investor dan minim konflik sosial.
+# Buat dictionary dari hasil gabungan
+project_dict = {
+    row['Project_ID']: (
+        str(row['Daya_Tarik_Investasi']).strip(), 
+        str(row['Tingkat_Konflik']).strip()
+    )
+    for _, row in merged_df.iterrows()
+}
+
+# Filter proyek yang memenuhi dua kriteria
+print("Projects with High Investment Attractiveness and Low Conflict:")
+found = False
+for project_id, (invest, conflict) in project_dict.items():
+    if invest.lower().startswith("high") and conflict.lower().startswith("low"):
+        print(project_id)
+        found = True
+
+if not found:
+    print("Tidak ada proyek yang memenuhi kriteria.")
+```
+
+Hasil analisis menunjukkan Empat proyek berhasil diidentifikasi memenuhi dua kriteria utama:
+
+1. PLTM-SUMUT-001
+2. PLTS-JATIM-001
+3. PLTS-NTB-001
+4. PLTS-JABW-001
+
+Melalui analisis ini, dapat disaring proyek-proyek yang berpotensi unggul secara ekonomi dan aman secara sosial, menjadi dasar bagi perencanaan proyek energi hijau yang lebih efisien, inklusif, dan berisiko rendah. Pendekatan berbasis data ini memperkuat keputusan investasi dan mendukung strategi nasional dalam menciptakan lingkungan yang kondusif untuk transisi energi berkelanjutan.
 
 ### 4.5 Total Investasi untuk Lokasi dengan Efisiensi Tinggi
 
-Setelah dilakukan penggabungan data antara Geospatial_Dataset.xlsx dan Financial_Dataset.xlsx, didapat total investasi untuk proyek-proyek yang memiliki efisiensi lokasi tinggi:
+Analisis ini bertujuan untuk menghitung **total biaya investasi** pada proyek-proyek energi yang memiliki **Efisiensi Lokasi tinggi**, dengan menggabungkan data dari:
 
-- Total Investment for High-Efficiency Locations: 955.73 billion Rp
+- `Geospatial_Dataset.xlsx`
+- `Financial_Dataset.xlsx`
 
-Efisiensi lokasi (Efisiensi_Lokasi) merupakan faktor penting dalam analisis proyek energi, karena berkaitan langsung dengan:
+Pendekatan ini digunakan untuk menilai proyek-proyek yang layak menjadi prioritas pendanaan berdasarkan efisiensi lokasi dari segi biaya, infrastruktur, dan kemudahan implementasi.
 
-- Biaya logistik,
-- Aksesibilitas infrastruktur,
-- Kemudahan implementasi proyek di lapangan.
+Efisiensi lokasi (`Efisiensi_Lokasi`) mengacu pada penilaian spasial terhadap:
 
-Proyek dengan lokasi efisien cenderung memiliki waktu pelaksanaan lebih cepat, risiko operasional lebih rendah, dan biaya pembangunan yang lebih stabil.
+- **Biaya logistik**
+- **Akses terhadap infrastruktur pendukung**
+- **Kemudahan implementasi proyek di lapangan**
 
-Untuk menghitung total investasi tersebut, dilakukan langkah-langkah sebagai berikut:
+Proyek yang berada di lokasi efisien cenderung:
 
-- Gabungkan data geospasial dan keuangan berdasarkan Project_ID.
-- Buat fungsi calculate_total_investment(data) untuk memproses total biaya investasi.
-- Gunakan for loop dan kondisi if untuk menjumlahkan Investment_Cost hanya dari proyek dengan Efisiensi_Lokasi == "High".
+- 🏗️ Lebih cepat dibangun  
+- 📉 Memiliki risiko operasional lebih rendah  
+- 💰 Lebih stabil secara biaya investasi
 
-Diperoleh total investasi sebesar 955.73 miliar rupiah untuk proyek-proyek yang memiliki lokasi dengan efisiensi tinggi. Ini menunjukkan bahwa:
+Analisis ini dirancang untuk melatih konsep:
+- 📥 **Fungsi dengan parameter** (`def calculate_total_investment`)
+- 🔁 **Perulangan dengan `for loop`**
+- ➗ **Operasi aritmatika untuk penjumlahan**
 
-- Proyek-proyek ini layak menjadi prioritas pendanaan, karena secara lokasi sudah optimal.
-- Informasi ini penting untuk penyusunan strategi investasi energi yang efisien dan rendah risiko.
-- Pemerintah dan investor dapat memanfaatkan metrik ini untuk menghindari proyek di lokasi tidak strategis yang berpotensi memakan biaya lebih besar.
+Berikut tahapan lengkapnya:
+
+1. **Gabungkan data geospasial dan keuangan** menggunakan `merge()` berdasarkan kolom `Project_ID`.
+2. **Buat fungsi** `calculate_total_investment()` yang menerima:
+   - Daftar Project_ID
+   - Data hasil gabungan
+3. **Gunakan `for loop`** untuk mencari proyek dengan `Efisiensi_Lokasi == "High"` dan menjumlahkan nilai `Investment_Cost`.
+4. **Tampilkan hasil akhir** dalam satuan miliar rupiah.
+
+```python
+# Fungsi untuk menghitung total investasi proyek dengan lokasi efisien tinggi
+def calculate_total_investment(project_ids, merged_data):
+    total = 0
+    for project_id in project_ids:
+        row = merged_data[merged_data["Project_ID"] == project_id]
+        if not row.empty:
+            lokasi = str(row["Efisiensi_Lokasi"].values[0]).strip().lower()
+            if lokasi.startswith("high"):
+                try:
+                    investasi = float(row["Investment_Cost"].values[0])
+                    total += investasi
+                except ValueError:
+                    print(f"Nilai investasi tidak valid untuk proyek: {project_id}")
+    return total
+
+# Ambil semua Project_ID dari data gabungan
+project_ids = merged_df["Project_ID"].tolist()
+
+# Hitung total investasi untuk proyek dengan efisiensi lokasi tinggi
+total_investment = calculate_total_investment(project_ids, merged_df)
+
+# Tampilkan hasilnya
+print(f"Total Investment for High-Efficiency Locations: {total_investment:.2f} billion Rp")
+```
+
+Melalui analisis ini, diperoleh bahwa proyek-proyek dengan efisiensi lokasi tinggi telah menyerap total investasi sebesar Rp 955.73 miliar.
+Temuan ini dapat digunakan sebagai dasar penyusunan prioritas pendanaan proyek energi terbarukan yang berbasis pada efisiensi dan kelayakan lokasi, mendukung transisi energi nasional yang lebih tepat sasaran.
 
