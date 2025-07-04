@@ -461,9 +461,10 @@ Dengan tahapan Implementasi :
    - `Investment_Cost` (miliar Rp)
 3. **Hitung efisiensi** dengan rumus:
 
-   $$
-   \text{Efisiensi} = \frac{\text{CO2\_Reduction}}{\text{Investment\_Cost} \times 1{,}000}
-   $$
+$$
+\mathrm{Efisiensi}_{CO_2} = \frac{\mathrm{CO2\ Reduction\ (ton)}}{\mathrm{Investment\ Cost\ (Rp)}} = \frac{\mathrm{CO2\_Reduction}}{\mathrm{Investment\_Cost} \times 1{,}000}
+$$
+
 
    (*catatan: dikalikan 1.000 karena nilai investasi dalam miliar dan ingin hasil dalam per juta*)
 
@@ -648,7 +649,7 @@ Analisis ini bertujuan untuk memprediksi **Daya Tarik Investasi** (tinggi, sedan
   - Mencoba model yang lebih kompleks seperti **Random Forest** atau **XGBoost**
   - Melakukan feature selection dan eksplorasi fitur baru
 
-📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**Task_for_Green_Finance_Data_Analysis]**(https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Analysis/Task_for_Green_Finance_Data_Analysis.ipynb)
+📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**[Task_for_Green_Finance_Data_Analysis]**(https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Analysis/Task_for_Green_Finance_Data_Analysis.ipynb)
 
 -------
 
