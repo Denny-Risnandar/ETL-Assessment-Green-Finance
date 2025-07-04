@@ -591,7 +591,7 @@ Analisis ini bertujuan untuk memprediksi **Daya Tarik Investasi** (tinggi, sedan
 **🧪 Adapun Tahapan Analisis yang kami lakukan adalah :**
 
 1. **Import dan Pembersihan Data**
-   - Data diambil dari `question_bonus_dataset.csv`
+   - Data diambil dari [`question_bonus_dataset.csv`](https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Data/question_bonus_dataset.csv)
    - Tidak ditemukan *missing values* pada dataset
    - Kolom kategorikal seperti `Konteks_Ekonomi` dan `Daya_Tarik_Investasi` diencoding dengan `LabelEncoder`
    - Fitur numerik dinormalisasi menggunakan `StandardScaler`
@@ -648,11 +648,11 @@ Analisis ini bertujuan untuk memprediksi **Daya Tarik Investasi** (tinggi, sedan
   - Mencoba model yang lebih kompleks seperti **Random Forest** atau **XGBoost**
   - Melakukan feature selection dan eksplorasi fitur baru
 
-📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**
+📁 **Notebook lengkap analisis ini dapat dilihat di file berikut:**Task_for_Green_Finance_Data_Analysis]**(https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Analysis/Task_for_Green_Finance_Data_Analysis.ipynb)
 
+-------
 
-
-## [📄 Kesimpulan 
+## 📄 Kesimpulan 
 
 Dari hasil semua analisis green finance maka dapat disimpulkan : 
 
