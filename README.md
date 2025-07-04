@@ -27,8 +27,6 @@ Selain itu berdasarkan databoks dari *International Energy Agency (IEA)*:
 
 ![gambar1](https://github.com/Asfa-Asfialana/ETL-Assessment-Green-Finance/blob/main/Data/gambar1.png)
 
-Green finance merupakan bentuk implementasi dari Sustainable Development Goals (SDGs) dalam sektor bisnis atau perusahaan yang saat ini mulai banyak diperhatikan. Pengertian Green finance menurut Urban & Wójcik (2019) adalah proses pengalokasian sumber modal atau aktivitas investasi keuangan yang mempedulikan perlindungan lingkungan, perubahan iklim, energi ramah lingkungan, dan pengelolaan yang bertanggung jawab di segala sektor sedangkan menurut Volz et al. (2015) mendefinisikan green finance sebagai serangkaian aktivitas investasi atau peminjaman modal yang mempertimbangkan dampak lingkungan dan turut melestarikan lingkungan, dapat diketahui green finance merupakan aktivitas pengelolaan keuangan yang memfokuskan pada kelestarian lingkungan bukan hanya persoalan keuntungan atau kerugian semata. Pada beberapa literasi, green finance memiliki banyak sebutan lain seperti sustainability finance, environmental finance, dan sebagainya. Sampai saat ini penelitian masih banyak dilakukan untuk mengetahui penyebab maupun dampak dari green finance di perusahaan.
-
 Green finance adalah salah satu alat yang Krusial dalam usaha menangani dampak perubahan iklim. untuk mencapai SDGs (Sustainable Development Goals) yang telah ditetapkan oleh PBB. Green finance (keuangan ramah lingkungan) berperan sebagai layanan keuangan yang mendorong keberlanjutan ekologi, perlawanan terhadap iklim dan efisiensi energi. Green finance menjadi salah satu cara untuk mendukung pelaku bisnis yang peduli lingkungan melalui penyediaan dana atau pinjaman. (Rahmanisa, 2023). Green finance mengatur aliran modal menuju proyek-proyek peduli terhadap lingkungan, dan pada akhirnya akan menghasilkan peningkatan produksi suatu perusahaan berdasarkan kegiatan yang ramah lingkungan, seperti energi terbarukan, efisiensi energi, pengelolaan limbah, dan proyek-proyek yang berkontribusi pada mitigasi perubahan iklim dan pembangunan berkelanjutan. Selain itu, Green finance memandu bisnis industri agar menggunakan lebih sedikit energi dengan kemampuan mengelola sumber daya keuangan guna memperoleh manfaat ekonomi dan lingkungan (Ronaldo & Suryanto, 2022). 
 
 
@@ -50,15 +48,15 @@ Rumusan masalah yang akan kita lakukan analisis dalam proyek analisis green fina
 
 Analisis green finance yang dilakukan bertujuan :
 
-- Mengukur efisiensi pengurangan CO₂ dari proyek PLTS per satuan biaya investasi.
-- Menentukan dampak lingkungan kolektif dari proyek PLTM melalui penghitungan rata-rata pengurangan emisi CO₂.
-- Mengembangkan alat input berbasis **Project_ID** untuk mengecek **status lahan** dan **tingkat konflik sosial**.
-- Mengidentifikasi proyek yang menarik secara finansial dan rendah konflik sosial sebagai prioritas investasi.
-- Menghitung total investasi pada proyek-proyek yang memiliki **lokasi strategis** dan efisien.
-- Membangun alat komputasi efisiensi CO₂ yang **tangguh**, **dapat digunakan ulang**, dan **andal**.
-- Menganalisis rata-rata **energy output** meskipun terdapat data tidak lengkap.
-- Membangun model prediktif klasifikasi daya tarik investasi berdasarkan variabel-variabel ekonomi dan lingkungan.
-- Sebagai syarat menyelesaikan Asessment Task Eco Techno Leader
+1. Mengukur efisiensi pengurangan CO₂ dari proyek PLTS per satuan biaya investasi.
+2. Menentukan dampak lingkungan kolektif dari proyek PLTM melalui penghitungan rata-rata pengurangan emisi CO₂.
+3. Mengembangkan alat input berbasis **Project_ID** untuk mengecek **status lahan** dan **tingkat konflik sosial**.
+4. Mengidentifikasi proyek yang menarik secara finansial dan rendah konflik sosial sebagai prioritas investasi.
+5. Menghitung total investasi pada proyek-proyek yang memiliki **lokasi strategis** dan efisien.
+6. Membangun alat komputasi efisiensi CO₂ yang **tangguh**, **dapat digunakan ulang**, dan **andal**.
+7. Menganalisis rata-rata **energy output** meskipun terdapat data tidak lengkap.
+8. Membangun model prediktif klasifikasi daya tarik investasi berdasarkan variabel-variabel ekonomi dan lingkungan.
+9. Sebagai syarat menyelesaikan Asessment Task Eco Techno Leader
 
 ### 1.4. Manfaat Analisis
 
@@ -76,7 +74,7 @@ Diharapkan hasil analisis green finance ini dapat memberi manfaat, seperti :
 
 ### 2.1 Green Finance 🌱
 
-Green finance atau biasanya disebut dengan sustainability finance menurut Urban & Wójcik (2019) adalah proses pengalokasian sumber daya modal atau kegiatan investasi keuangan yang peduli terhadap perlindungan lingkungan, perubahan iklim, energi ramah lingkungan, dan pengelolaan yang bertanggung jawab di semua sektor. Di Indonesia perkembangannya dimulai pada 2009 melalui UU No 32 Tahun 2009 Tentang Perlindungan dan Pengelolaan Lingkungan Hidup, pemerintah Indonesia mengatur kegiatan usaha wajib untuk melewati proses Analisis Mengenai Dampak Lingkungan (AMDAL) yang mana kegiatan usaha tersebut perlu mengidentifikasi potensi dampak negatif terhadap lingkungan serta mempertimbangkan kritik dan saran dari masyarakat sekitar untuk dijadikan dasar penyusunan rencana pengelolaan dan pemantauan lingkungan hidup. Bank Indonesia telah memasukan persyaratan AMDAL sebagai kriteria dalam menyalurkan modal pada pelaku usaha yang mengajukan kebutuhan dana pada perbankan. Peraturan Bank Indonesia No 14/15/PBI/2012 Tentang Penilaian Kualitas Aset Bank Umum yang diikuti dengan Surat Edaran Bank Indonesia No 15/28/DPNP mengenai Penilaian Kualitas Aset Bank Umum mendorong sektor perbankan untuk mempertimbangkan faktor kelayakan lingkungan dalam menilai prospek usaha atau proyek yang akan didanai. 
+Green finance atau biasanya disebut dengan sustainability finance menurut Urban & Wójcik (2019) adalah proses pengalokasian sumber daya modal atau kegiatan investasi keuangan yang peduli terhadap perlindungan lingkungan, perubahan iklim, energi ramah lingkungan, dan pengelolaan yang bertanggung jawab di semua sektor. Di Indonesia perkembangannya dimulai pada 2009 melalui UU No 32 Tahun 2009 Tentang Perlindungan dan Pengelolaan Lingkungan Hidup, pemerintah Indonesia mengatur kegiatan usaha wajib untuk melewati proses Analisis Mengenai Dampak Lingkungan (AMDAL) yang mana kegiatan usaha tersebut perlu mengidentifikasi potensi dampak negatif terhadap lingkungan serta mempertimbangkan kritik dan saran dari masyarakat sekitar untuk dijadikan dasar penyusunan rencana pengelolaan dan pemantauan lingkungan hidup.
 
 Implementasi green finance saat ini masih belum memiliki pedoman yang jelas baik secara nasional maupun internasional. Tidak adanya pedoman baku yang harus diikuti oleh pelaku usaha dalam menjalankan green finance membuat mereka menjalankan prinsip tersebut dalam garis besar saja atau penerapan green/sustainability finance hanya didasarkan pada pengurangan dampak pencemaran dan perusakan lingkungan saja padahal penerapan yang dapat dilakukan bisa lebih luas lagi, seperti membantu masyarakat untuk sadar dalam menjaga lingkungan atau melakukan kemitraan yang berbasis pada kelestarian lingkungan. Tidak adanya panduan atau standar yang jelas mengenai kebenaran perusahaan dalam mengimplementasikan green finance memberikan hal yang tidak baik karena dapat memicu praktik manipulatif, perusahaan yang melakukan kampanye green finance bisa saja dilakukan hanya untuk formalitas publik atau mengikuti peraturan saja tanpa benar-benar melakukan. Sebaliknya, tidak ada panduan dalam penerapan green finance bisa saja memberikan tudingan negatif pada perusahaan atau pelaku usaha yang sebenarnya menerapkan praktik tersebut tanpa mempublikasikannya.
 
@@ -164,28 +162,19 @@ Proyek ini dibangun menggunakan bahasa Python 3.12 dan dijalankan di lingkungan 
 - Matplotlib(visualisasi)
 - OpenPyXL / xlrd (baca file Excel)
 
-### 3.3 Struktur Proyek
+### 3.3 📁 Struktur Proyek
 
-📦 green-finance-analysis/
-
-├── 📁 notebooks/
-
-│   └── 📓 analisis.ipynb — Notebook utama berisi eksplorasi dan analisis data
-
-├── 📁 data/
-
-│   ├── 📊 financial_dataset.xlsx — Data investasi dan keuangan proyek 
-
-│   ├── 🌱 environmental_dataset.xlsx — Data pengurangan emisi CO₂ dan dampak lingkungan
-
-│   ├── 🧭 social_dataset.xlsx — Data sosial (konflik, status tanah, pekerja)  
-
-│   ├── 📈 economic_dataset.xlsx — Data dampak ekonomi makro proyek
-
-│   └── 🗺️ geospatial_dataset.csv — Koordinat dan lokasi proyek
-
-├── 📄 README.md — Dokumentasi proyek ini
-
+| Folder / File                  | Deskripsi                                                  |
+|-------------------------------|-------------------------------------------------------------|
+| `📁 notebooks/`                | Direktori untuk Jupyter Notebook                           |
+| └── `analisis.ipynb`          | Notebook utama yang berisi proses eksplorasi dan analisis  |
+| `📁 data/`                     | Folder berisi semua dataset proyek                         |
+| ├── `financial_dataset.xlsx`  | Data investasi dan keuangan proyek                         |
+| ├── `environmental_dataset.xlsx` | Data pengurangan emisi CO₂ dan aspek lingkungan        |
+| ├── `social_dataset.xlsx`     | Data sosial seperti konflik dan status lahan               |
+| ├── `economic_dataset.xlsx`   | Data dampak ekonomi proyek secara makro                    |
+| └── `geospatial_dataset.csv`  | Data lokasi geografis dan efisiensi spasial proyek         |
+| `README.md`                   | Dokumentasi utama proyek                                   |
 
 ----
 
@@ -202,6 +191,13 @@ $$
 Di mana:
 - **CO₂ Reduction** = total emisi CO₂ yang berhasil dikurangi (dalam ton)
 - **Investment Cost** = jumlah biaya investasi proyek (dalam miliar rupiah)
+
+```
+for _, row in plts_df.iterrows():
+    ratio = row["CO2_Reduction"] / (row["Investment_Cost"] * 1_000_000)
+    category = "High" if ratio >= 0.5 else "Low"
+    print(f"{row['Project_ID']}: {ratio:.4f} ({category})")
+```
 
 Selanjutnya, setiap proyek diklasifikasikan menjadi:
 - `"High"` jika efisiensi ≥ 0.5 ton CO₂ per juta rupiah
@@ -226,17 +222,42 @@ Beberapa kemungkinan penyebab efisiensi rendah:
 
 ### 4.2 Rata-rata Pengurangan Emisi CO₂ Proyek PLTM
 
-Berdasarkan hasil analisis menggunakan dataset Environmental_Dataset.xlsx, diperoleh bahwa:
+Analisis ini bertujuan untuk menghitung **rata-rata pengurangan emisi karbon dioksida (CO₂)** yang dihasilkan oleh proyek-proyek **PLTM (Pembangkit Listrik Tenaga Minihidro)** berdasarkan data pada `Environmental_Dataset.xlsx`.
 
-- Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO₂e.
+Dalam soal ini, digunakan pendekatan berbasis Python dengan penekanan pada **penggunaan `for loop`, `if` condition, dan `list`** untuk memproses data baris demi baris. Berikut tahapan yang dilakukan:
 
-Nilai ini dihitung dengan menyaring seluruh proyek yang memiliki Project_ID diawali dengan "PLTM", kemudian menjumlahkan seluruh nilai CO2_Reduction dan membaginya dengan jumlah proyek tersebut. PLTM (Pembangkit Listrik Tenaga Minihidro) merupakan salah satu bentuk energi terbarukan yang ramah lingkungan. Dengan kontribusi rata-rata sebesar 34.600 ton CO₂e per proyek, PLTM terbukti memberikan dampak positif dalam mengurangi emisi karbon di sektor energi.
+1. **Menyiapkan list kosong** untuk menyimpan nilai `CO2_Reduction` dari proyek PLTM.
+2. **Melakukan iterasi (`for loop`)** terhadap seluruh baris pada dataset.
+3. **Menggunakan `if` condition** untuk memfilter hanya proyek yang:
+   - Project_ID diawali `"PLTM"`
+   - Nilai `CO2_Reduction` tidak kosong
+4. Menambahkan nilai valid ke dalam list.
+5. **Menghitung total dan rata-rata** dari nilai-nilai dalam list tersebut.
 
-Nilai ini menunjukkan bahwa:
+```
+python
+# Langkah 1–4: Iterasi dan filter data
+pltm_co2_list = []
 
-- PLTM berpotensi menjadi pilar penting dalam strategi dekarbonisasi nasional.
+for _, row in env_df.iterrows():
+    project_id = row["Project_ID"]
+    if isinstance(project_id, str) and project_id.startswith("PLTM"):
+        co2_reduction = row["CO2_Reduction"]
+        if pd.notnull(co2_reduction):  # Pastikan tidak kosong
+            pltm_co2_list.append(co2_reduction)
 
-Secara kolektif, proyek-proyek PLTM dapat mendukung target pengurangan emisi yang ditetapkan oleh pemerintah. Analisis berbasis data ini penting sebagai bahan evaluasi dan dasar perencanaan pengembangan proyek energi skala kecil ke depan.
+# Langkah 5: Hitung rata-rata jika ada data valid
+if len(pltm_co2_list) > 0:
+    total_co2 = sum(pltm_co2_list)
+    average_co2 = total_co2 / len(pltm_co2_list)
+    print(f"Average CO2 Reduction for PLTM Projects: {average_co2:.0f} tons CO2e")
+else:
+    print("Tidak ada proyek PLTM yang valid ditemukan.")
+```
+
+Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO₂e. Nilai ini dihitung berdasarkan data proyek PLTM yang valid dalam dataset, dengan menyaring Project_ID yang diawali "PLTM".
+
+
 
 ### 4.3 Pemeriksaan Status Lahan dan Tingkat Konflik Sosial Proyek
 
