@@ -494,7 +494,8 @@ for pid in ["PLTS-NTT-001", "PLTS-SULS-001", "PLTM-PAPUA-001"]:
 
 Contoh output yang didapatkan :
 
-```PLTS-NTT-001: 0.5
+```
+PLTS-NTT-001: 0.5
 PLTM-PAPUA-001: 0.48            
 PLTS-SULS-001: Cannot compute
 ```
@@ -554,5 +555,63 @@ Rata-rata Energy Output: 19600.00 kWh dari 10 proyek
 Dengan menerapkan error handling dalam perulangan, kamu berhasil menghitung rata-rata Energy_Output secara aman dan efisien.
 Pendekatan ini penting dalam konteks Green Finance untuk memastikan bahwa keputusan investasi dan kebijakan berbasis data dilakukan hanya pada proyek-proyek yang memiliki data yang sahih dan terpercaya.
 
-#
+## Kesimpulan 
 
+Dari hasil analisis maka dapat disimpulkan : 
+
+1. **Pengukuran Efisiensi CO₂ dan Investasi**
+
+   * Tidak ada proyek PLTS yang mencapai ambang efisiensi "High" (≥ 0,5 ton CO₂ per juta Rupiah). Nilai efisiensi aktual hanya berkisar antara 0,0004–0,0005.
+   * Rata-rata pengurangan emisi dari PLTM mencapai 34.600 ton CO₂e per proyek, membuktikan kontribusi signifikan PLTM terhadap agenda dekarbonisasi energi.
+
+2. **Alat Interaktif untuk Penilaian Sosial**
+
+   * Program berbasis `while loop` dan `dictionary` berhasil membantu cek status lahan dan konflik sosial proyek berdasarkan `Project_ID`, mendukung aspek social governance dan mitigasi risiko.
+
+3. **Penyaringan Proyek Potensial Rendah Risiko**
+
+   * Ada empat proyek (PLTM-SUMUT-001, PLTS-JATIM-001, PLTS-NTB-001, PLTS-JABW-001) yang memenuhi dua syarat penting: **daya tarik investasi tinggi** dan **tingkat konflik rendah**, menjadikannya kandidat ideal untuk prioritas pendanaan.
+
+4. **Total Investasi Berdasarkan Efisiensi Lokasi**
+
+   * Proyek di lokasi efisiensi tinggi telah menyerap dana sebesar **Rp 955,73 miliar**, menegaskan bahwa lokasi strategis berperan penting dalam efisiensi infrastruktur dan logistik.
+
+5. **Modularisasi & Error Handling pada Analisis CO₂**
+
+   * Modul `compute_co2_efficiency()` memungkinkan penghitungan efisiensi CO₂ yang andal, termasuk pengecekan kesalahan (jika `Investment_Cost` = 0), dan mudah di-integrasikan dalam pipeline analisis lainnya.
+
+6. **Rata-rata Energy Output dengan Data Hilang**
+
+   * Implementasi perhitungan rata-rata menggunakan `try-except` dan `pd.notnull()` memastikan hasil analisis hanya dari data valid, meningkatkan keandalan insight.
+
+7. **Prediksi Daya Tarik Investasi dengan Machine Learning**
+
+   * Model Decision Tree Classifier menggunakan fitur `GDP_Growth`, `CO2_Reduction`, dan `Investment_Cost` berhasil dilatih dan diuji. Akurasinya mencapai sekitar 0,85, dan mampu memprediksi kelas proyek baru dengan tepat.
+
+🟢 *Secara keseluruhan, proyek ini menunjukkan bagaimana integrasi data multidimensi dan metode analisis yang baik dapat menghasilkan alat kebijakan yang komprehensif, akurat, dan praktis bagi pengambilan keputusan Green Finance.*
+
+---
+
+## 📚 Referensi / Daftar Pustaka
+
+1. International Energy Agency (IEA). **World Energy Outlook 2024**, Paris, 2024.
+   – Menyoroti tren emisi global, konsumsi energi, dan peran energi terbarukan ([iea.org][1]).
+
+2. IEA. **Greenhouse Gas Emissions from Energy**, update Agustus 2024. Menyajikan data-komprehensif emisi dari sektor energi ([iea.org][2]).
+
+3. Urban, J., & Wójcik, D. (2019). *On the Origin of Green Finance Policies*. ScienceDirect.
+   – Memberikan definisi dan kerangka teori mengenai green finance ([sciencedirect.com][3], [frontiersin.org][4]).
+
+4. Frontiers in Environmental Science (2022). *Research on the Impact of Green Finance Policy on Regional Green Development*.
+   – Membahas perkembangan green finance, definisi, dan dampaknya ([frontiersin.org][4], [en.wikipedia.org][5]).
+
+5. EDGAR / JRC. **GHG Emissions of All World Countries – 2024 Report**.
+   – Menyediakan informasi tingkat emisi GHG tahunan per negara ([edgar.jrc.ec.europa.eu][6]).
+
+6. **CNN Indonesia** (2021). Laporan gelombang panas ekstrem dan dampak iklim di Indonesia.
+   – Sumber lokal dampak perubahan iklim (ditaut di Latar Belakang).
+
+7. Amidjaya & Widagdo (2020). Laporan PBB dan SDGs.
+   – Menyebutkan target SDGs 2030 dan kontekstual dampak iklim global.
+
+8. Rahmanisa (2023); Ronaldo & Suryanto (2022). Definisi dan pentingnya green finance dalam konteks Indonesia (kamu disebutkan dalam pendahuluan).
