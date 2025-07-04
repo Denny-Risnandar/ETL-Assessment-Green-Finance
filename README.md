@@ -4,8 +4,8 @@
 |--------------------|----------------|----------|
 |Alif Nur Rahman     | 10.028.DB2025  | III      |
 |Asfa Asfialana      | 10.037.DB2025  | III      |
-|Denny Risnandar     | 09.000.DB2025  | III      |
-|Ihsan Ahsanul Amala | 09.000.DB2025  | III      |
+|Denny Risnandar     | 09.030.DB2025  | III      |
+|Ihsan Ahsanul Amala | 09.044.DB2025  | III      |
 
 ---
 
