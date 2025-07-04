@@ -442,3 +442,117 @@ print(f"Total Investment for High-Efficiency Locations: {total_investment:.2f} b
 Melalui analisis ini, diperoleh bahwa proyek-proyek dengan efisiensi lokasi tinggi telah menyerap total investasi sebesar Rp 955.73 miliar.
 Temuan ini dapat digunakan sebagai dasar penyusunan prioritas pendanaan proyek energi terbarukan yang berbasis pada efisiensi dan kelayakan lokasi, mendukung transisi energi nasional yang lebih tepat sasaran.
 
+### 4.6 Modul Analisis Efisiensi CO₂ dengan Error Handling
+
+Soal ini dirancang untuk membangun **alat analisis modular** yang dapat digunakan kembali (reusable) untuk menghitung **efisiensi reduksi emisi CO₂** berdasarkan investasi proyek energi. Kebutuhan ini muncul karena pemerintah memerlukan evaluasi cepat dan konsisten terhadap banyak proyek yang memiliki nilai investasi dan pengurangan emisi yang bervariasi.
+
+Dalam analisis ini kita menggunakan Konsep Pemrograman :
+
+- 📦 **Modularisasi**: Membuat file `green_analysis.py` sebagai modul eksternal
+- ⚙️ **Fungsi terstruktur** dengan parameter
+- 🚫 **Error handling**: Mengantisipasi pembagian dengan nol menggunakan `try-except`
+- 🔁 **Iterasi proyek** menggunakan `for loop`
+
+Dengan tahapan Implementasi :
+
+1. **Membuat modul** `green_analysis.py` yang berisi fungsi `compute_co2_efficiency`
+2. Fungsi menerima dua parameter:
+   - `CO2_Reduction` (ton CO₂)
+   - `Investment_Cost` (miliar Rp)
+3. **Hitung efisiensi** dengan rumus:
+
+   $$
+   \text{Efisiensi} = \frac{\text{CO2\_Reduction}}{\text{Investment\_Cost} \times 1{,}000}
+   $$
+
+   (*catatan: dikalikan 1.000 karena nilai investasi dalam miliar dan ingin hasil dalam per juta*)
+
+4. **Tangani ZeroDivisionError** menggunakan blok `try-except`
+5. **Import fungsi** ke notebook dan uji pada 3 proyek nyata dari dataset
+
+```python
+# green_analysis.py
+
+def compute_co2_efficiency(co2_reduction, investment_cost):
+    try:
+        efficiency = co2_reduction / (investment_cost * 1_000)
+        return round(efficiency, 2)
+    except ZeroDivisionError:
+        return "Cannot compute"
+
+from green_analysis import compute_co2_efficiency
+
+# Daftar Project_ID untuk diuji
+for pid in ["PLTS-NTT-001", "PLTS-SULS-001", "PLTM-PAPUA-001"]:
+    row = merged_df[merged_df["Project_ID"] == pid]
+    if not row.empty:
+        co2 = row.iloc[0]["CO2_Reduction"]
+        inv = row.iloc[0]["Investment_Cost"]
+        result = compute_co2_efficiency(co2, inv)
+        print(f"{pid}: {result}")
+```
+
+Contoh output yang didapatkan :
+
+```PLTS-NTT-001: 0.5
+PLTM-PAPUA-001: 0.48            
+PLTS-SULS-001: Cannot compute
+```
+Dengan pendekatan ini, pemerintah dan tim analis dapat mengevaluasi efisiensi lingkungan proyek secara cepat dan otomatis, bahkan saat data tidak lengkap atau mengandung risiko perhitungan.
+
+### 4.7 Menghitung Rata-rata Energy Output dengan Error Handling
+
+Soal ini menguji kemampuan dalam menangani **data yang tidak lengkap** saat melakukan analisis perulangan. Fokusnya adalah:
+
+- Menggunakan **`for loop`** untuk memproses banyak proyek
+- Menangani data hilang atau tidak tersedia (missing data)
+- Menggunakan **`try-except` atau kondisi `if`** untuk error handling
+- Menghitung **rata-rata Energy Output** dari proyek-proyek yang valid
+
+Pemerintah membutuhkan metrik untuk mengevaluasi efisiensi output energi dari proyek-proyek terpilih berdasarkan file `Environmental_Dataset.xlsx`.  
+Namun, tidak semua proyek memiliki data `Energy_Output`, sehingga program harus **menyaring** dan **mengabaikan proyek yang datanya kosong**.
+
+Tahapan yang dilakukan dalam analisis ini adalah :
+1. **Ambil data** dari `Environmental_Dataset.xlsx`
+2. **Inisialisasi** dua variabel:
+   - `total_energy` → total output energi dari proyek valid
+   - `valid_count` → jumlah proyek dengan data valid
+3. Lakukan **looping** pada data:
+   - Jika `Energy_Output` *tidak kosong*, tambahkan ke total dan hitung
+   - Jika kosong (NaN), tampilkan pesan peringatan
+4. Hitung rata-rata hanya jika ada proyek valid
+5. Tampilkan hasil akhir atau pesan jika tidak ada proyek valid
+
+```python
+total_energy = 0
+valid_count = 0
+
+for pid, row in env_df.iterrows():
+    try:
+        energy = row["Energy_Output"]
+        if pd.notnull(energy):  # Pastikan tidak kosong
+            total_energy += energy
+            valid_count += 1
+        else:
+            print(f"{pid}: Energy_Output kosong.")
+    except KeyError:
+        print(f"{pid}: Kolom Energy_Output tidak ditemukan.")
+
+# Tampilkan rata-rata jika ada data valid
+if valid_count > 0:
+    avg_output = total_energy / valid_count
+    print(f"Rata-rata Energy Output: {avg_output:.2f} kWh dari {valid_count} proyek")
+else:
+    print("Tidak ada proyek valid yang bisa dihitung.")
+```
+Contoh ouput yang didapatkan :
+
+```
+Rata-rata Energy Output: 19600.00 kWh dari 10 proyek
+```
+
+Dengan menerapkan error handling dalam perulangan, kamu berhasil menghitung rata-rata Energy_Output secara aman dan efisien.
+Pendekatan ini penting dalam konteks Green Finance untuk memastikan bahwa keputusan investasi dan kebijakan berbasis data dilakukan hanya pada proyek-proyek yang memiliki data yang sahih dan terpercaya.
+
+#
+
