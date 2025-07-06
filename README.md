@@ -192,10 +192,17 @@ Di mana:
 - **CO₂ Reduction** = total emisi CO₂ yang berhasil dikurangi (dalam ton)
 - **Investment Cost** = jumlah biaya investasi proyek (dalam miliar rupiah)
 
-Task 
+Task:
+ • MergeEnvironmental_Dataset.xlsx andFinancial_Dataset.xlsx using Project_ID.
+ • ForPLTSprojects(Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction
+ / (Investment_Cost * 1_000_000).
+ • Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"
+ (< 0.5).
+ • Display results as: "Project_ID: Ratio (Category)" using f-strings
+
+Task 1 
 Merge eEnvironmental_Dataset.xlsx and Financial_Dataset.xlsx using Project_ID
 hasil :
-
 
 ```
 # Ambil data excel sebagai berikut :
@@ -307,6 +314,40 @@ Additional Explanation: This question focuses on list creation and iteration. Fi
 
 Jawaban
 
+Task 1. • Use Environmental_Dataset.xlsx.
+
+```
+       Project_ID  CO2_Reduction  Energy_Output  Environmental_Risk_Index  \
+0    PLTS-NTT-001          75000          25000                        45   
+1  PLTM-SUMUT-001          30000          10000                        60   
+2  PLTS-JATIM-001          90000          30000                        30   
+3   PLTM-KALB-001          35000          12000                        55   
+4   PLTS-SULS-001          60000          20000                        40   
+5   PLTM-PAPU-001          40000          15000                        70   
+6    PLTS-NTB-001          80000          28000                        35   
+7   PLTM-ACHD-001          32000          11000                        65   
+8   PLTS-JABW-001          95000          32000                        25   
+9   PLTM-SULU-001          36000          13000                        50   
+
+                                 Konteks_Lingkungan Peringkat_Dampak  
+0  Sumba: radiasi matahari tinggi, rawan kekeringan       High: 🌿🌿🌿🌿  
+1        Tapanuli: banjir musiman, debit air stabil      Medium: 🌿🌿🌿  
+2         Surabaya: risiko rendah, efisiensi tinggi      High: 🌿🌿🌿🌿🌿  
+3         Kalbar: rawan banjir, hutan lindung dekat      Medium: 🌿🌿🌿  
+4             Makassar: cuaca stabil, risiko sedang       High: 🌿🌿🌿🌿  
+5                  Papua: gempa tinggi, akses sulit      Medium: 🌿🌿🌿  
+6           Lombok: risiko rendah, pariwisata hijau       High: 🌿🌿🌿🌿  
+7                 Aceh: banjir musiman, sungai kuat      Medium: 🌿🌿🌿  
+8              Bandung: cuaca ideal, risiko minimal      High: 🌿🌿🌿🌿🌿  
+9               Sulut: gempa sedang, debit air baik      Medium: 🌿🌿🌿
+```
+
+Task 2
+ • Create a list of CO2_Reduction values for PLTM projects (Project_ID starts with
+ "PLTM").
+ • Use a for loop to calculate the total CO2 reduction and count of PLTM projects.
+ • Compute and display the average.
+
 ```
 pltm_co2_list = []
 
@@ -346,7 +387,7 @@ print(f'Average CO2 Reduction for PLTM projects: {avg_CO2_Reduction}')
 Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO₂e. 
 Nilai ini dihitung berdasarkan data proyek PLTM yang valid dalam dataset, dengan menyaring Project_ID yang diawali "PLTM".
 
-
+---
 
 ### 4.3 Pemeriksaan Status Lahan dan Tingkat Konflik Sosial Proyek
 
