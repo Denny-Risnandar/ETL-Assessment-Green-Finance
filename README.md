@@ -193,9 +193,18 @@ Di mana:
 - **Investment Cost** = jumlah biaya investasi proyek (dalam miliar rupiah)
 
 Task 
-MergeEnvironmental_Dataset.xlsx andFinancial_Dataset.xlsx using Project_ID
+Merge eEnvironmental_Dataset.xlsx and Financial_Dataset.xlsx using Project_ID
 hasil :
+
+
 ```
+# Ambil data excel sebagai berikut :
+env_df = pd.read_excel('D:/MATERI ETL/TUGAS GREEN FINANCE/Environmental_Dataset.xlsx')
+fin_df = pd.read_excel('D:/MATERI ETL/TUGAS GREEN FINANCE/Financial_Dataset.xlsx')
+
+# Setelah data terpanggil dengan env_df dan fin_df maka merge kedua file excel tersebut dengan rumus
+merged_df = pd.merge(env_df, fin_df, on='Project_ID', how='inner')
+
        Project_ID  CO2_Reduction  Energy_Output  Environmental_Risk_Index  \
 0    PLTS-NTT-001          75000          25000                        45   
 1  PLTM-SUMUT-001          30000          10000                        60   
@@ -229,7 +238,7 @@ hasil :
 Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
 ```
 Task 2
- • ForPLTSprojects(Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
+ • For PLTS projects (Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
  • Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"  (< 0.5).
  • Display results as: "Project_ID: Ratio (Category)" using f-strings.
 
@@ -264,8 +273,10 @@ Beberapa kemungkinan penyebab efisiensi rendah:
 - **Biaya investasi sangat besar**, terutama di daerah terpencil atau pulau-pulau kecil
 - **Skala proyek masih kecil**, sehingga dampak pengurangan emisinya tidak sebanding dengan investasi
 - Teknologi panel surya yang digunakan mungkin belum maksimal dalam efisiensi
+
 ---
-### 4.2 Rata-rata Pengurangan Emisi CO₂ Proyek PLTM
+
+### 4.2 (For Loop and Lists) Rata-rata Pengurangan Emisi CO₂ Proyek PLTM
 
 Analisis ini bertujuan untuk menghitung **rata-rata pengurangan emisi karbon dioksida (CO₂)** yang dihasilkan oleh proyek-proyek **PLTM (Pembangkit Listrik Tenaga Minihidro)** berdasarkan data pada `Environmental_Dataset.xlsx`.
 
@@ -279,9 +290,24 @@ Dalam soal ini, digunakan pendekatan berbasis Python dengan penekanan pada **pen
 4. Menambahkan nilai valid ke dalam list.
 5. **Menghitung total dan rata-rata** dari nilai-nilai dalam list tersebut.
 
+Task:
+ • Use Environmental_Dataset.xlsx.
+ • Create a list of CO2_Reduction values for PLTM projects (Project_ID starts with
+ "PLTM").
+ • Use a for loop to calculate the total CO2 reduction and count of PLTM projects.
+ • Compute and display the average.
+ 
+ Example Output:
+ Average CO2 Reduction for PLTM Projects: 35000 tons CO2e
+ 
+Additional Explanation: This question focuses on list creation and iteration. Filter
+ PLTM projects using a for loop and string methods, append CO2_Reduction values to
+ a list, and compute the average by dividing the sum by the count. Handle empty lists to
+ avoid division by zero.
+
+Jawaban
+
 ```
-python
-# Langkah 1–4: Iterasi dan filter data
 pltm_co2_list = []
 
 for _, row in env_df.iterrows():
@@ -300,7 +326,25 @@ else:
     print("Tidak ada proyek PLTM yang valid ditemukan.")
 ```
 
-Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO₂e. Nilai ini dihitung berdasarkan data proyek PLTM yang valid dalam dataset, dengan menyaring Project_ID yang diawali "PLTM".
+Adapun cara lain misal nya dengan seperti ini :
+
+```
+# Ambil data excel sebagai berikut :
+env_df = pd.read_excel('D:/MATERI ETL/TUGAS GREEN FINANCE/Environmental_Dataset.xlsx')
+
+Buat list
+sum_CO2_Reduction = 0
+count = 0
+for index, row in env_df.iterrows():
+  if str(row['Project_ID']).startswith('PLTM'):
+    sum_CO2_Reduction += row['CO2_Reduction'] 
+    count += 1
+avg_CO2_Reduction = sum_CO2_Reduction / count
+print(f'Average CO2 Reduction for PLTM projects: {avg_CO2_Reduction}')
+```
+
+Rata-rata pengurangan emisi CO₂ untuk proyek PLTM adalah sebesar 34.600 ton CO₂e. 
+Nilai ini dihitung berdasarkan data proyek PLTM yang valid dalam dataset, dengan menyaring Project_ID yang diawali "PLTM".
 
 
 
