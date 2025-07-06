@@ -244,9 +244,9 @@ merged_df = pd.merge(env_df, fin_df, on='Project_ID', how='inner')
 Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
 ```
 Task 2
- • For PLTS projects (Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
- • Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"  (< 0.5).
- • Display results as: "Project_ID: Ratio (Category)" using f-strings.
+2. For PLTS projects (Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
+3. Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"  (< 0.5).
+4. Display results as: "Project_ID: Ratio (Category)" using f-strings.
 
 ```
 for idx, row in merged_df.iterrows():
