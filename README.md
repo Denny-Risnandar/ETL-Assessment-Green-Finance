@@ -194,10 +194,11 @@ Di mana:
 
 Task:
  • MergeEnvironmental_Dataset.xlsx andFinancial_Dataset.xlsx using Project_ID.
- • ForPLTSprojects(Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction
- / (Investment_Cost * 1_000_000).
- • Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"
- (< 0.5).
+ 
+ • ForPLTSprojects(Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
+ 
+ • Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"  (< 0.5).
+ 
  • Display results as: "Project_ID: Ratio (Category)" using f-strings
 
 Task 1 
