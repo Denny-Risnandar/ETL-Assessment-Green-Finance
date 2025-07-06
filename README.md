@@ -193,8 +193,9 @@ Di mana:
 - **Investment Cost** = jumlah biaya investasi proyek (dalam miliar rupiah)
 
 Task:
-1. MergeEnvironmental_Dataset.xlsx andFinancial_Dataset.xlsx using Project_ID.
-2. ForPLTSprojects(Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
+
+1. Merge Environmental_Dataset.xlsx andFinancial_Dataset.xlsx using Project_ID.
+2. For PLTS projects(Project_ID starts with "PLTS"), compute the ratio: CO2_Reduction  / (Investment_Cost * 1_000_000).
 3. Use if-else to classify the ratio as "High" (≥ 0.5 tons CO2e/million Rp) or "Low"  (< 0.5).
 4. Display results as: "Project_ID: Ratio (Category)" using f-strings
 
